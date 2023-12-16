@@ -38,6 +38,7 @@ dependencies:
   flutter_native_splash: ^2.3.7
   flutter_launcher_icons: ^0.13.1
   dartz: ^0.10.1
+  flutter_modular: ^3.1.1+1
 
 flutter_native_splash:
   color: "#FF8400"
