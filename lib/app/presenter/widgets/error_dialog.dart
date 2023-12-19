@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class ConfirmDialog {
-  static void show(BuildContext context, Function onConfirm) {
+class errorDialog {
+  static void show(BuildContext context, String message, ) {
     showDialog(
       context: context,
       builder: (context) {
@@ -13,26 +13,41 @@ class ConfirmDialog {
               ),
             ),
           ),
-          content: SizedBox(
-            height: 80,
+          content: FractionallySizedBox(
+            heightFactor: 0.31,
             child: Column(
               children: [
+                FractionallySizedBox(
+                  widthFactor: 0.2,
+                  child: Image.asset('assets/images/icon_info.png', color: const Color(0xFFF28E1C),),
+                ),
+                const SizedBox(height: 20),
                 const Text(
-                  'Deseja enviar a mensagem?',
+                  'Oops...',
                   style: TextStyle(
-                    fontFamily: 'calibri',
-                    fontWeight: FontWeight.w400,
+                    fontFamily: 'Calibri',
+                    fontSize: 22,
+                    fontWeight: FontWeight.bold,
                   ),
+                ),
+                const SizedBox(height: 10),
+                Text(
+                  message,
+                  style: const TextStyle(
+                    fontFamily: 'calibri',
+                    fontSize: 18,
+                    fontWeight: FontWeight.w400,
+                  ), textAlign: TextAlign.center,
                 ),
                 const SizedBox(height: 10),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     SizedBox(
-                      width: 100,
+                      width: 90,
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: const Color(0xFFC73001),
+                          backgroundColor: const Color(0xFF27292D),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(18.0),
                           ),
@@ -41,27 +56,8 @@ class ConfirmDialog {
                           Navigator.pop(context);
                         },
                         child: const Center(
-                          child: Text('Cancelar',
-                              style: TextStyle(color: Colors.white)),
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      width: 100,
-                      child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: const Color(0xFF5BB76F),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(18.0),
-                          ),
-                        ),
-                        onPressed: () {
-                          onConfirm();
-                          Navigator.pop(context);
-                        },
-                        child: const Center(
-                          child: Text('Enviar',
-                              style: TextStyle(color: Colors.white)),
+                          child:
+                              Text('Voltar', style: TextStyle(color: Colors.white)),
                         ),
                       ),
                     ),

@@ -86,9 +86,10 @@ flutter:
     - assets/images/logo_onebox.png
     - assets/images/splash_img.png
     - assets/images/background_login.png
-    - assets/images/icone_tema_claro.png
     - assets/images/icon_send.png
     - assets/images/icon_delete.png
+    - assets/images/icon_info.png
+    - assets/images/icon_exit.png
     - assets/images/center_icon.png
 
   # An image asset can refer to one or more resolution-specific "variants", see

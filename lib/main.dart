@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:onebox_teste/app/app_module.dart';
-import 'package:onebox_teste/app/auth/presenter/pages/home_screen.dart';
-import 'package:onebox_teste/app/auth/presenter/pages/login_screen.dart';
+import 'package:onebox_teste/app/auth/app_module.dart';
+import 'package:onebox_teste/app/presenter/pages/home_screen.dart';
+import 'package:onebox_teste/app/presenter/pages/login_screen.dart';
 
 void main() {
   runApp(ModularApp(module: AppModule(), child: MyApp()));
@@ -19,10 +19,10 @@ class MyApp extends StatelessWidget {
         fontFamily: 'Circular-std'
       ),
       routes: {
-        '/login': (context) => login_screen(),
+        '/login': (context) => const login_screen(),
         '/home': (context) => const home_screen()
       },
-      initialRoute: '/home',
+      initialRoute: '/login',
     );
   }
 }

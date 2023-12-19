@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:onebox_teste/app/auth/presenter/controllers/card_controller.dart';
-import 'package:onebox_teste/app/auth/presenter/widgets/confirm_dialog.dart';
-import 'package:onebox_teste/app/auth/presenter/widgets/delete_dialog.dart';
-import 'package:onebox_teste/app/auth/presenter/widgets/options_bottom.dart';
-import 'package:onebox_teste/app/auth/presenter/widgets/text_field_box.dart';
+import 'package:onebox_teste/app/presenter/controllers/card_controller.dart';
+import 'package:onebox_teste/app/presenter/controllers/login_controller.dart';
+import 'package:onebox_teste/app/presenter/widgets/confirm_dialog.dart';
+import 'package:onebox_teste/app/presenter/widgets/delete_dialog.dart';
+import 'package:onebox_teste/app/presenter/widgets/text_field_box.dart';
 import 'package:intl/intl.dart';
 import 'package:readmore/readmore.dart';
 
@@ -17,6 +17,7 @@ class home_screen extends StatefulWidget {
 class _home_screenState extends State<home_screen> {
   final TextEditingController textController = TextEditingController();
   final cardController _cardController = cardController();
+  final LoginController loginController = LoginController();
 
   @override
   void initState() {
@@ -58,8 +59,17 @@ class _home_screenState extends State<home_screen> {
         actions: [
           Padding(
             padding: const EdgeInsets.only(right: 15),
-            child: options_bottom(
-              clearCard: () {},
+            child: GestureDetector(
+              onTap: () {
+                loginController.clearUser(context);
+                print('deslogado');
+              },
+              child: SizedBox(
+                width: 25,
+                child: Image.asset(
+                  'assets/images/icon_exit.png',
+                ),
+              ),
             ),
           )
         ],
@@ -154,7 +164,7 @@ class _home_screenState extends State<home_screen> {
                               _cardController.sendText(
                                   text: textController.text);
                               textController.clear();
-                            });
+                            }, 'Deseja enviar a mensagem?');
                     }),
               ),
             )
